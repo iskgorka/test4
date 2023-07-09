@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class ArraysStrings {
     public static void main(String[] args) {
 
@@ -91,7 +95,86 @@ Example 10 .startsWith() .endsWith()
 Example 11 .indexOf() .lastIndexOf()
         String s = "Now is the time for all good men to come to the aid of their country.";
         System.out.println(s);
-        System.out.println("indexOf('sdfsdf') = " + s.indexOf("sdfsdf"));
+        System.out.println("indexOf('sdfsdf') = " + s.indexOf("sdfsdf")); // -1
+        System.out.println("indexOf(t) = " + s.indexOf('t')); // 7
+        System.out.println("lastindexOf(t) = " + s.lastIndexOf('t')); // 65
+        System.out.println("indexOf(the) = " + s.indexOf("the")); // 7
+        System.out.println("lastindexOf(the) = " + s.lastIndexOf("the")); // 55
+        System.out.println("indexOf(t, 10) = " + s.indexOf('t', 10)); // 11
+        System.out.println("lastindexOf(t, 60) = " + s.lastIndexOf('t', 60)); // 55
+        System.out.println("indexOf(the, 10) = " + s.indexOf("the", 10)); // 44
+        System.out.println("lastindexOf(the, 60) = " + s.lastIndexOf("the", 60)); // 55
 
+Example 12 - .substring() заменить одну подстроку на другую
+        String org = "This is a test. This is, too.";
+        String search = "is";
+        String sub = "was";
+        String result = "";
+        String form = org.substring(16);
+        System.out.println(form);
+        String form2 = org.substring(0, 6);
+        System.out.println(form2);
+        int i;
+        do { // заменить is на was
+            System.out.println(org);
+            i = org.indexOf(search); // номер символа с которого начинается is в строке org
+            if (i != -1) {
+                result = org.substring(0, i);
+                result = result + sub;
+                result = result + org.substring(i + search.length());
+                org = result;
+            }
+        } while (i != -1);
+
+Example 13 .replace()
+        String org = "This is a test. This is, too.";
+        String newOrg1 = org.replace('i', ' ');
+        String newOrg2 = "This is a test".replace('s', 'a');
+        System.out.println(newOrg1);
+        System.out.println(newOrg2);
+
+Example 14
+        //создать буферизованный поток чтения данных типа BufferedReader, используя стандартный поток ввода System.in
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str;
+        System.out.println("Введите стоп для завершения.");
+        System.out.println("Введите название штата: ");
+        do {
+            str = br.readLine();
+            str = str.trim(); //удалить пробелы
+            if (str.equals("Иллинойс"))
+                System.out.println("Столица - Спрингфилд");
+            else if (str.equals("Миссури"))
+                System.out.println("Столица - Джефферсон-Сити");
+            else if (str.equals("Калифорния"))
+                System.out.println("Столица - Сакраменто");
+            else if (str.equals("Вашингтон"))
+                System.out.println("Столица - Олимпия");
+        } while (!str.equals("стоп"));
+
+Example 15 .toUpperCase() .toLowerCase()
+        String s = "Это Тестовая Строка.";
+        System.out.println("Исходная строка: " + s);
+        String upper = s.toUpperCase();
+        String lower = s.toLowerCase();
+        System.out.println("Верхний регистр: " + upper);
+        System.out.println("Нижний регистр: " + lower);
+
+Example 16 .contains()
+        String s = "Это тест. Новая строка";
+        System.out.println("Исходная строка: " + s);
+        System.out.println("Строка содержит 'тест': " + s.contains("тест"));
+        System.out.println("Строка содержит 'новая': " + s.contains("новая"));
+
+Example 17 - Разница '==' и '.equals()'
+        String s1 = "Привет";
+        String s2 = new String(s1);
+        System.out.println(s1 + " равно " + s2 + " -> " + s1.equals(s2));
+        System.out.println(s1 + " == " + s2 + " -> " + (s1 == s2));
+
+Example 18 - main() args
+        for (int i = 0; i < args.length; i++)
+            System.out.println("args[" + i + "]: " + args[i]);
+            Edit configurations -> arguments
       */
 

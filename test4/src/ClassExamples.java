@@ -2,7 +2,7 @@ public class ClassExamples {
     public static void main(String[] args) {
 
     }
-
+}
     /*
 Example 1 - сумма первых 5 элементов массива
         int b = 2;
@@ -65,4 +65,3 @@ Example 4 - Ternary operator
         }
         System.out.println("k = " + k); // k = 1
      */
-}
